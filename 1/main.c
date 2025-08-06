@@ -64,6 +64,11 @@ void print_proc(size_t start, size_t step, int argc, char *argv[])
 
 int main(int argc, char *argv[])
 {
+    if (argc <= 1)
+    {
+        perror("Excample: num|str [num|str]\n");
+    }
+    
     pid_t pid;
     int rv;
     switch (pid = fork())
@@ -80,7 +85,7 @@ int main(int argc, char *argv[])
         wait(&status);
         if (WIFEXITED(status))
         {
-            printf("Child exited with status %d\n", WEXITSTATUS(status));
+            //printf("Child exited with status %d\n", WEXITSTATUS(status));
         }
     }
 
